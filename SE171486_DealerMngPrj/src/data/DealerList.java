@@ -1,14 +1,17 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package data;
+import java.util.List;
+import java.util.ArrayList;
+import java.sql.Date;
+import tools.MyTool;
+import mng.LogIn;
 
-/**
- *
- * @author daing
- */
 public class DealerList {
-    
+    LogIn loginObj = null;
+    private static final String PHONEPATTERN = "\\d{9} | \\d{11}";
+    private String dataFIle = "";
+    boolean changed = false;
+
+    public DealerList(LogIn loginObj) {
+        this.loginObj = loginObj;
+    }  
 }
