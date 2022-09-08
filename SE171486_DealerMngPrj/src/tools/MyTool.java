@@ -119,7 +119,9 @@ public class MyTool {
                 PrintWriter pw = new PrintWriter(fw);
                 for (Object item : list) {
                     pw.println(item);
-                };
+                }
+                pw.close();
+                fw.close();
             } catch (IOException e) {
                 System.out.println(e);
             }
