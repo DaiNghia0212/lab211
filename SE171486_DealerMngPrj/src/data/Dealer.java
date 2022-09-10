@@ -9,14 +9,14 @@ public class Dealer implements Comparable<Dealer> {
     public static final String PHONE_FORMAT = "\\d{9} | \\d{11}";
     private String ID;
     private String name;
-    private String addr;
+    private String address;
     private String phone;
     private boolean continuing;
 
-    public Dealer(String ID, String name, String addr, String phone, boolean continuing) {
+    public Dealer(String ID, String name, String address, String phone, boolean continuing) {
         this.ID = ID;
         this.name = name;
-        this.addr = addr;
+        this.address = address;
         this.phone = phone;
         this.continuing = continuing;
     }
@@ -25,7 +25,7 @@ public class Dealer implements Comparable<Dealer> {
         String[] parts = line.split("" + this.SEPARATOR);
         ID = parts[0].trim();
         name = parts[1].trim();
-        addr = parts[2].trim();
+        address = parts[2].trim();
         phone = parts[3].trim();
         continuing = MyTool.parseBool(parts[4]);
     }
@@ -46,12 +46,12 @@ public class Dealer implements Comparable<Dealer> {
         this.name = name;
     }
 
-    public String getAddr() {
-        return addr;
+    public String getAddress() {
+        return address;
     }
 
-    public void setAddr(String addr) {
-        this.addr = addr;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public String getPhone() {
@@ -72,7 +72,7 @@ public class Dealer implements Comparable<Dealer> {
 
     @Override
     public String toString() {
-        return ID + SEPARATOR + name + SEPARATOR + addr + SEPARATOR + phone + SEPARATOR + continuing + "\n";
+        return ID + SEPARATOR + name + SEPARATOR + address + SEPARATOR + phone + SEPARATOR + continuing + "\n";
     }
     
     @Override

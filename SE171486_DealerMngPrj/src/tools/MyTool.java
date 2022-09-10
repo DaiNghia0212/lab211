@@ -58,7 +58,7 @@ public class MyTool {
     public static String readNonBlank(String message) {
         String input = "";
         do {
-            System.out.println(message + ": ");
+            System.out.print(message + ": ");
             input = SC.nextLine().trim();
         } while (input.isEmpty());
         return input;
@@ -68,7 +68,7 @@ public class MyTool {
         String input = "";
         boolean valid;
         do {
-            System.out.println(message + ": ");
+            System.out.print(message + ": ");
             input = SC.nextLine().trim();
             valid = validStr(input, pattern);
         } while (!valid);
@@ -77,7 +77,7 @@ public class MyTool {
 
     public static boolean readBool(String message) {
         String input;
-        System.out.println(message + "[1/0-Y/N-T/F]: ");
+        System.out.print(message + "[1/0-Y/N-T/F]: ");
         input = SC.nextLine().trim();
         if (input.isEmpty()) {
             return false;
@@ -96,7 +96,6 @@ public class MyTool {
                 BufferedReader bf = new BufferedReader(fr);
                 String line;
                 while ((line = bf.readLine()) != null) {
-                    line = readNonBlank(line);
                     if (!line.equals("")) {
                         list.add(line);
                     }
@@ -128,18 +127,18 @@ public class MyTool {
         }
     }
 
-    public static void main(String[] args) {
-        System.out.println("Tests with phone number: ");
-        System.out.println(validStr("012345678", "\\d{9} | \\d{11}"));
-        System.out.println(validStr("0123455691", "\\d{9} | \\d{11}"));
-        System.out.println(validStr("12345678", "\\d{9} | \\d{11}"));
-
-        System.out.println(validPassword("qwerty", 8));
-        System.out.println(validPassword("qwertyABC", 8));
-        System.out.println(validPassword("12345678", 8));
-        System.out.println(validPassword("qbc123456", 8));
-        System.out.println(validPassword("qbc@123456", 8));
-
-        System.out.println("Tests with IDs: ");
-    }
+//    public static void main(String[] args) {
+//        System.out.println("Tests with phone number: ");
+//        System.out.println(validStr("012345678", "\\d{9} | \\d{11}"));
+//        System.out.println(validStr("0123455691", "\\d{9} | \\d{11}"));
+//        System.out.println(validStr("12345678", "\\d{9} | \\d{11}"));
+//
+//        System.out.println(validPassword("qwerty", 8));
+//        System.out.println(validPassword("qwertyABC", 8));
+//        System.out.println(validPassword("12345678", 8));
+//        System.out.println(validPassword("qbc123456", 8));
+//        System.out.println(validPassword("qbc@123456", 8));
+//
+//        System.out.println("Tests with IDs: ");
+//    }
 }

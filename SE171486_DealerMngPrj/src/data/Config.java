@@ -5,7 +5,7 @@ import tools.MyTool;
 
 public class Config {
 
-    private static final String CONFIG_FILE = "DealerData.config.txt";
+    private static final String CONFIG_FILE = "DealerData/config.txt";
     private String accountFile;
     private String dealerFile;
     private String deliveryFile;
@@ -20,11 +20,11 @@ public class Config {
             line = line.toUpperCase();
             String[] parts = line.split(":");
             if (line.indexOf("ACCOUN") >= 0) {
-                accountFile = "DeallerData/" + parts[1].trim();
+                accountFile = "DealerData/" + parts[1].trim();
             } else if (line.indexOf("DEALE") >= 0) {
-                dealerFile = "DeallerData/" + parts[1].trim();
+                dealerFile = "DealerData/" + parts[1].trim();
             } else if (line.indexOf("DELIVER") >= 0) {
-                deliveryFile = "DeallerData/" + parts[1].trim();
+                deliveryFile = "DealerData/" + parts[1].trim();
             }
         }
     }
