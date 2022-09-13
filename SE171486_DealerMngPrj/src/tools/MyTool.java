@@ -117,7 +117,7 @@ public class MyTool {
                 FileWriter fw = new FileWriter(file);
                 PrintWriter pw = new PrintWriter(fw);
                 for (Object item : list) {
-                    pw.println(item);
+                    pw.print(item);
                 }
                 pw.close();
                 fw.close();

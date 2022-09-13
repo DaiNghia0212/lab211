@@ -19,10 +19,10 @@ public class Menu extends ArrayList<String> {
     public int getChoice(String title) {
         System.out.println(title);
         for (int i = 0; i < this.size(); i++) {
-            System.out.println("\t" + i + " - " + this.get(i));
+            System.out.format("\t%d - %s\n", i + 1, this.get(i));
         }
         System.out.println("\tOther for quit.");
-        int choice = Integer.parseInt(MyTool.readNonBlank("\tChoose [1  .  .  " + this.size() + "]:"));
+        int choice = Integer.parseInt(MyTool.readNonBlank("\tChoose [1  .  .  " + this.size() + "]"));
         return choice;
     }
 }

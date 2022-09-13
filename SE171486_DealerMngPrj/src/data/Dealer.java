@@ -6,7 +6,7 @@ public class Dealer implements Comparable<Dealer> {
 
     public static final char SEPARATOR = ',';
     public static final String ID_FORMAT = "D\\d{3}";
-    public static final String PHONE_FORMAT = "\\d{9} | \\d{11}";
+    public static final String PHONE_FORMAT = "\\d{9}|\\d{11}";
     private String ID;
     private String name;
     private String address;

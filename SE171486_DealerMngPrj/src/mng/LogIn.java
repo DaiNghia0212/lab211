@@ -28,12 +28,12 @@ public class LogIn {
 
     public static void main(String[] args) {
         Account account = null;
-        boolean continuing = false;
-        boolean valid = false;
+        boolean continuing;
         do {
+            continuing = false;
             AccountChecker accountChecker = new AccountChecker();
             account = intputAccount();
-            valid = accountChecker.check(account);
+            boolean valid = accountChecker.check(account);
             if (!valid) {
                 continuing = MyTool.readBool("Invalid account - Try again?");
             }
