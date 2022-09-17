@@ -105,8 +105,7 @@ public class DealerList extends ArrayList<Dealer> {
     }
 
     public void updateDealer() {
-        System.out.print("Dealer's ID needs updating: ");
-        String ID = MyTool.SC.nextLine();
+        String ID = MyTool.readPattern("Dealer's ID needs updating: ", Dealer.ID_FORMAT);
         int pos = searchDealer(ID);
         if (pos < 0) {
             System.out.println("Dealer " + ID + " not found!");

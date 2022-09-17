@@ -82,8 +82,7 @@ public class MyTool {
         if (input.isEmpty()) {
             return false;
         }
-        char c = Character.toUpperCase(input.charAt(0));
-        return (c == '1' || c == 'Y' || c == 'T');
+        return parseBool(input);
     }
 
     public static List<String> readLinesFromFile(String filename) {
@@ -126,19 +125,4 @@ public class MyTool {
             }
         }
     }
-
-//    public static void main(String[] args) {
-//        System.out.println("Tests with phone number: ");
-//        System.out.println(validStr("012345678", "\\d{9} | \\d{11}"));
-//        System.out.println(validStr("0123455691", "\\d{9} | \\d{11}"));
-//        System.out.println(validStr("12345678", "\\d{9} | \\d{11}"));
-//
-//        System.out.println(validPassword("qwerty", 8));
-//        System.out.println(validPassword("qwertyABC", 8));
-//        System.out.println(validPassword("12345678", 8));
-//        System.out.println(validPassword("qbc123456", 8));
-//        System.out.println(validPassword("qbc@123456", 8));
-//
-//        System.out.println("Tests with IDs: ");
-//    }
 }
