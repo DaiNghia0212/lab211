@@ -6,6 +6,7 @@ public class Dealer implements Comparable<Dealer> {
 
     public static final char SEPARATOR = ',';
     public static final String ID_FORMAT = "D\\d{3}";
+    public static final String ID_SEARCH_FORMAT = "D\\d{3}|D\\d{1}|D\\d{2}|D";
     public static final String PHONE_FORMAT = "\\d{9}|\\d{11}";
     private String ID;
     private String name;
@@ -68,6 +69,10 @@ public class Dealer implements Comparable<Dealer> {
 
     public void setContinuing(boolean continuing) {
         this.continuing = continuing;
+    }
+    
+    public void showInfor(){
+        System.out.printf("|%-10s|%-10s|%-20s|%-15s|%-10s|\n",ID, name, address, phone, continuing);
     }
 
     @Override

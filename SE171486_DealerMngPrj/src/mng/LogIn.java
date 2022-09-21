@@ -44,7 +44,7 @@ public class LogIn {
         LogIn loginObj = new LogIn(account);
 
         if (account.getRole().equalsIgnoreCase("ACC-1")) {
-            String[] options = {"Add new dealer", "Search a dealer",
+            String[] options = {"Add new dealer", "Search a dealer or dealers",
                 "Remove a dealer", "Update a dealer", "Print all dealers",
                 "Print continuing dealers", "Print UN-continuing dealers", "Write to file"};
             Menu menu = new Menu(options);
@@ -58,7 +58,7 @@ public class LogIn {
                         dealerList.addDealer();
                         break;
                     case 2:
-                        dealerList.searchDealer();
+                        dealerList.searchDealers();
                         break;
                     case 3:
                         dealerList.removeDealer();
@@ -86,7 +86,7 @@ public class LogIn {
                             }
                         }
                 }
-            } while (choice > 0 && choice < menu.size());
+            } while (choice > 0 && choice <= menu.size());
             System.out.println("Bye.");
         }
     }

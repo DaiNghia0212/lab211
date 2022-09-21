@@ -71,6 +71,9 @@ public class MyTool {
             System.out.print(message + ": ");
             input = SC.nextLine().trim();
             valid = validStr(input, pattern);
+            if (!valid) {
+                System.out.println("Invalid, please type again!");
+            }
         } while (!valid);
         return input;
     }
