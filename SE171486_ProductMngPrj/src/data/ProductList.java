@@ -20,6 +20,8 @@ public class ProductList extends ArrayList<Product> {
         for (Product product : this) {
             if (product.getName().equals(name))
                 return true;
+//            if (product.getName().contains(name))
+//                return true;
         }
         return false;
     }
@@ -28,6 +30,8 @@ public class ProductList extends ArrayList<Product> {
         for (Product product : this) {
             if (product.getId().equals(id))
                 return true;
+//            if (product.getId().contains(id))
+//                return true;
         }
         return false;
     }
@@ -77,15 +81,20 @@ public class ProductList extends ArrayList<Product> {
         System.out.println("New product has been added.");
     }
 
-    public void checkExitProduct() {
-        System.out.println("Check to exit product");
-        String name = Tools.readNonBlank("Name of product");
-
+    public void checkExistProduct() {
+        System.out.println("Check to exist product");
+        String name = Tools.readNonBlank("Name of product").toUpperCase();
         if (isProductNameExit(name)) {
-            System.out.println("Exit Product");
+            System.out.println("Exist Product");
         } else {
             System.out.println("No Product Found!");
         }
+//        String find = Tools.readNonBlank("Name or ID of product").toUpperCase();
+//        if (isProductNameExit(find) || isProductIdExit(find)) {
+//            System.out.println("Exist Product");
+//        } else {
+//            System.out.println("No Product Found!");
+//        }
     }
 
     public void printAllProducts() {
@@ -106,9 +115,13 @@ public class ProductList extends ArrayList<Product> {
         ProductList productList = new ProductList();
         System.out.println("Search product information by name");
         String name = Tools.readNonBlank("Name of product").toUpperCase();
+//        System.out.println("Search product information");
+//        String find = Tools.readNonBlank("Name or ID of product").toUpperCase();
         for (Product product : this) {
             if (product.getName().contains(name))
                 productList.add(product);
+//            if (product.getName().contains(find) || product.getId().contains(find))
+//                productList.add(product);
         }
 
         productList.printAllProducts();

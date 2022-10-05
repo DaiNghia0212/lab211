@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 public class Product implements Comparable<Product>, Serializable {
     public static final String ID_FORMAT = "D\\d{3}";
-    public static final String NAME_FORMAT = "[a-zA-Z]{5,}";
+    public static final String NAME_FORMAT = "\\S{5,}";
     public static final String STATUS_FORMAT = "Available|Not Available";
     private final String id;
     private String name; //must be at least five characters and no spaces and is not allowed to duplicate

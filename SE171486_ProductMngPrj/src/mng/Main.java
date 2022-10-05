@@ -22,7 +22,7 @@ public class Main {
                     productList.createProduct();
                     break;
                 case 3:
-                    productList.checkExitProduct();
+                    productList.checkExistProduct();
                     break;
                 case 4:
                     productList.searchProductInfoByName();
