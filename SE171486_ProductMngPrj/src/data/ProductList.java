@@ -16,7 +16,7 @@ public class ProductList extends ArrayList<Product> {
         Tools.readLinesFromFile(dataFile, this);
     }
 
-    public boolean isProductNameExit(String name) {
+    private boolean isProductNameExit(String name) {
         for (Product product : this) {
             if (product.getName().equals(name))
                 return true;
@@ -26,7 +26,7 @@ public class ProductList extends ArrayList<Product> {
         return false;
     }
 
-    public boolean isProductIdExit(String id) {
+    private boolean isProductIdExit(String id) {
         for (Product product : this) {
             if (product.getId().equals(id))
                 return true;
@@ -127,7 +127,7 @@ public class ProductList extends ArrayList<Product> {
         productList.printAllProducts();
     }
 
-    public void updateProductInfo() {
+    private void updateProductInfo() {
         int pos = 0;
         String id = Tools.readNonBlank("ID of product").toUpperCase();
         for (int i = 0; i < this.size(); i++) {
@@ -215,7 +215,7 @@ public class ProductList extends ArrayList<Product> {
         }
     }
 
-    public void deleteProduct() {
+    private void deleteProduct() {
         int pos = 0;
         String id = Tools.readNonBlank("ID of product").toUpperCase();
         for (int i = 0; i < this.size(); i++) {
