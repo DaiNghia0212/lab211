@@ -8,6 +8,7 @@ import java.util.Collections;
 import java.util.Scanner;
 
 public class ProductList extends ArrayList<Product> {
+
     public ProductList() {
     }
 
@@ -16,22 +17,20 @@ public class ProductList extends ArrayList<Product> {
         Tools.readLinesFromFile(dataFile, this);
     }
 
-    private boolean isProductNameExit(String name) {
+    public boolean isProductNameExit(String name) {
         for (Product product : this) {
-            if (product.getName().equals(name))
+            if (product.getName().equals(name)) {
                 return true;
-//            if (product.getName().contains(name))
-//                return true;
+            }
         }
         return false;
     }
 
-    private boolean isProductIdExit(String id) {
+    public boolean isProductIdExit(String id) {
         for (Product product : this) {
-            if (product.getId().equals(id))
+            if (product.getId().equals(id)) {
                 return true;
-//            if (product.getId().contains(id))
-//                return true;
+            }
         }
         return false;
     }
@@ -42,17 +41,19 @@ public class ProductList extends ArrayList<Product> {
         String name;
         do {
             id = Tools.readPattern("ID of new product", Product.ID_FORMAT,
-                            "Invalid")
+                    "Invalid")
                     .toUpperCase();
-            if (isProductIdExit(id))
+            if (isProductIdExit(id)) {
                 System.out.println("Product ID is duplicated");
+            }
         } while (isProductIdExit(id));
         do {
             name = Tools.readPattern("Name of new product", Product.NAME_FORMAT,
-                            "Name of product must be at least 5 characters and contains no spaces")
+                    "Name of product must be at least 5 characters and contains no spaces")
                     .toUpperCase();
-            if (isProductNameExit(name))
+            if (isProductNameExit(name)) {
                 System.out.println("Product name is duplicated");
+            }
         } while (isProductNameExit(name));
 
         Scanner sc = new Scanner(System.in);
@@ -60,16 +61,18 @@ public class ProductList extends ArrayList<Product> {
         do {
             System.out.print("Price of new product: ");
             unitPrice = sc.nextDouble();
-            if (unitPrice > 10000 || unitPrice < 0)
+            if (unitPrice > 10000 || unitPrice < 0) {
                 System.out.println("Price of product must be in range 0 to 10000");
+            }
         } while (unitPrice > 10000 || unitPrice < 0);
 
         int quantity;
         do {
             System.out.print("Quantity of new product: ");
             quantity = sc.nextInt();
-            if (quantity > 1000 || quantity < 0)
+            if (quantity > 1000 || quantity < 0) {
                 System.out.println("Quantity of product must be in range 0 to 1000");
+            }
         } while (quantity > 1000 || quantity < 0);
 
         String status = Tools.readPattern("Status of new product (Available or Not Available)",
@@ -89,12 +92,6 @@ public class ProductList extends ArrayList<Product> {
         } else {
             System.out.println("No Product Found!");
         }
-//        String find = Tools.readNonBlank("Name or ID of product").toUpperCase();
-//        if (isProductNameExit(find) || isProductIdExit(find)) {
-//            System.out.println("Exist Product");
-//        } else {
-//            System.out.println("No Product Found!");
-//        }
     }
 
     public void printAllProducts() {
@@ -115,19 +112,16 @@ public class ProductList extends ArrayList<Product> {
         ProductList productList = new ProductList();
         System.out.println("Search product information by name");
         String name = Tools.readNonBlank("Name of product").toUpperCase();
-//        System.out.println("Search product information");
-//        String find = Tools.readNonBlank("Name or ID of product").toUpperCase();
         for (Product product : this) {
-            if (product.getName().contains(name))
+            if (product.getName().contains(name)) {
                 productList.add(product);
-//            if (product.getName().contains(find) || product.getId().contains(find))
-//                productList.add(product);
+            }
         }
 
         productList.printAllProducts();
     }
 
-    private void updateProductInfo() {
+    public void updateProductInfo() {
         int pos = 0;
         String id = Tools.readNonBlank("ID of product").toUpperCase();
         for (int i = 0; i < this.size(); i++) {
@@ -137,9 +131,9 @@ public class ProductList extends ArrayList<Product> {
             }
         }
 
-        if (pos == 0)
+        if (pos == 0) {
             System.out.println("Product does not exist");
-        else {
+        } else {
             Scanner sc = new Scanner(System.in);
             Product product = this.get(pos);
             try {
@@ -147,14 +141,17 @@ public class ProductList extends ArrayList<Product> {
                 do {
                     System.out.print("new name, ENTER for omitting: ");
                     newName = sc.nextLine().trim().toUpperCase();
-                    
+
                     if (!newName.isEmpty()) {
-                        if (!newName.matches(Product.NAME_FORMAT))
+                        if (!newName.matches(Product.NAME_FORMAT)) {
                             System.out.println("Name of product must be at least 5 characters and contains no spaces");
-                        if (isProductNameExit(newName))
+                        }
+                        if (isProductNameExit(newName)) {
                             System.out.println("Product name is duplicated");
-                    } else
+                        }
+                    } else {
                         break;
+                    }
                 } while (!newName.isEmpty());
 
                 String newPrice;
@@ -164,10 +161,11 @@ public class ProductList extends ArrayList<Product> {
 
                     if (!newPrice.isEmpty()) {
                         double unitPrice = Double.parseDouble(newPrice);
-                        if (unitPrice > 10000 || unitPrice < 0)
+                        if (unitPrice > 10000 || unitPrice < 0) {
                             System.out.println("Price of product must be in range 0 to 10000");
-                        else
+                        } else {
                             break;
+                        }
                     }
                 } while (!newPrice.isEmpty());
 
@@ -178,10 +176,11 @@ public class ProductList extends ArrayList<Product> {
 
                     if (!newQuantity.isEmpty()) {
                         int quantity = Integer.parseInt(newQuantity);
-                        if (quantity > 1000 || quantity < 0)
+                        if (quantity > 1000 || quantity < 0) {
                             System.out.println("Quantity of product must be in range 0 to 1000");
-                        else
+                        } else {
                             break;
+                        }
                     }
                 } while (!newQuantity.isEmpty());
 
@@ -190,23 +189,28 @@ public class ProductList extends ArrayList<Product> {
                     System.out.print("new status, ENTER for omitting: ");
                     newStatus = sc.nextLine().trim().toLowerCase();
 
-                    if (newStatus.equals("available"))
+                    if (newStatus.equals("available")) {
                         newStatus = "Available";
-                    else if (newStatus.equals("not available"))
+                    } else if (newStatus.equals("not available")) {
                         newStatus = "Not Available";
+                    }
 
-                    if (!newStatus.isEmpty())
-                        if (!newStatus.matches(Product.STATUS_FORMAT))
+                    if (!newStatus.isEmpty()) {
+                        if (!newStatus.matches(Product.STATUS_FORMAT)) {
                             System.out.println("Invalid, please try again");
-                        else
+                        } else {
                             break;
+                        }
+                    }
                 } while (!newStatus.isEmpty());
 
                 product.setName(newName);
-                if (!newPrice.isEmpty())
+                if (!newPrice.isEmpty()) {
                     product.setUnitPrice(Double.parseDouble(newPrice));
-                if (!newQuantity.isEmpty())
+                }
+                if (!newQuantity.isEmpty()) {
                     product.setQuantity(Integer.parseInt(newQuantity));
+                }
                 product.setStatus(newStatus);
                 System.out.println("Success to update product");
             } catch (Exception error) {
@@ -215,7 +219,7 @@ public class ProductList extends ArrayList<Product> {
         }
     }
 
-    private void deleteProduct() {
+    public void deleteProduct() {
         int pos = 0;
         String id = Tools.readNonBlank("ID of product").toUpperCase();
         for (int i = 0; i < this.size(); i++) {
@@ -225,9 +229,9 @@ public class ProductList extends ArrayList<Product> {
             }
         }
 
-        if (pos == 0)
+        if (pos == 0) {
             System.out.println("Product does not exist");
-        else {
+        } else {
             try {
                 this.remove(pos);
                 System.out.println("Success to delete product");

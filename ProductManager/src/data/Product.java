@@ -3,6 +3,7 @@ package data;
 import java.io.Serializable;
 
 public class Product implements Comparable<Product>, Serializable {
+
     public static final String ID_FORMAT = "D\\d{3}";
     public static final String NAME_FORMAT = "\\S{5,}";
     public static final String STATUS_FORMAT = "Available|Not Available";
@@ -45,8 +46,9 @@ public class Product implements Comparable<Product>, Serializable {
     }
 
     public void setStatus(String status) {
-        if (!status.isEmpty())
+        if (!status.isEmpty()) {
             this.status = status;
+        }
     }
 
     public String getName() {
@@ -54,8 +56,9 @@ public class Product implements Comparable<Product>, Serializable {
     }
 
     public void setName(String name) {
-        if (!name.isEmpty())
+        if (!name.isEmpty()) {
             this.name = name;
+        }
     }
 
     public void showInfo() {
@@ -69,16 +72,18 @@ public class Product implements Comparable<Product>, Serializable {
 
     @Override
     public int compareTo(Product o) {
-        if (this.getQuantity() > o.getQuantity())
+        if (this.getQuantity() > o.getQuantity()) {
             return -1;
-        else if (this.getQuantity() == o.getQuantity())
-            if (this.getUnitPrice() > o.getUnitPrice())
+        } else if (this.getQuantity() == o.getQuantity()) {
+            if (this.getUnitPrice() > o.getUnitPrice()) {
                 return 1;
-            else if (this.getUnitPrice() == o.getUnitPrice())
+            } else if (this.getUnitPrice() == o.getUnitPrice()) {
                 return 0;
-            else
+            } else {
                 return -1;
-        else
+            }
+        } else {
             return 1;
+        }
     }
 }
